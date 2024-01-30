@@ -1,0 +1,15 @@
+## Each line in this file consists of a pattern to match, followed by a list of
+## owners specified by email address or GitHub username. The order of the lines
+## is essential, as the last matching pattern takes precedence. Additional info
+## is available in the official GitHub documentation: https://git.io/codeowners
+
+## The following line defines default owner(s) for everything in the repo:
+
+## The following lines define specific owner(s) for the associated patterns:
+
+## The following lines define the owners of files that enforce corporate GitHub
+## policies, such as repository visibility and pull request requirements. These
+## lines MUST remain at the bottom of the file.
+.github/*.yml                   @kareo-netops/GitHub-Policy
+.github/workflows               @kareo-netops/GitHub-Policy
+CODEOWNERS                      @kareo-netops/GitHub-Policy
