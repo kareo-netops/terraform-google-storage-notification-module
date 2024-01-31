@@ -4,9 +4,13 @@ variable "bucket_name" {
 }
 
 variable "payload_format" {
-  description = "the desired content of the payload. Defaults to 'NONE'. 'JSON_API_V1' is the only other acceptable value."
+  description = "the desired content of the payload. Defaults to 'NONE'."
   type        = string
   default     = "NONE"
+  validation {
+    condition = contains(["NONE", "JSON_API_V1"], var.payload_format)
+    error_message = "Values 'NONE' and 'JSON_API_V1' are the only acceptable values."
+  }
 }
 
 variable "topic_id" {
@@ -17,7 +21,6 @@ variable "topic_id" {
 variable "event_types" {
   description = "List of event type filters for this notification. If not set, Cloud Storage sends notifications for all events. Valid types are 'OBJECT_FINALIZE', 'OBJECT_METADATA_UPDATE', 'OBJECT_DELETE', and 'OBJECT_ARCHIVE'."
   type        = list(string)
-  default     = null
 }
 
 variable "object_name_prefix" {
